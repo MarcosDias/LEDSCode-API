@@ -19,17 +19,20 @@
   <eClassifiers xsi:type="ecore:EClass" name="ClassDiagram" eSuperTypes="#//Model">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="composed" upperBound="-1"
-        eType="#//Class" containment="true"/>
+        eType="#//SuperClass" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Class">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//SuperClass">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="composed" upperBound="-1"
         eType="#//Attribute"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stereotypeClass" upperBound="-1"
         eType="#//StereotypeClass" changeable="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="has" upperBound="-1" eType="#//Relationship"
-        eOpposite="#//Relationship/has"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" upperBound="-1"
+        eType="#//Class">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="simple"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -52,13 +55,15 @@
     <eLiterals name="boolean"/>
     <eLiterals name="Object"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Relationship">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeRelationship" eType="#//TypeRelationship"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="has" upperBound="-1" eType="#//Class"
-        eOpposite="#//Class/has"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SuperClass" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="TypeRelationship">
-    <eLiterals name="GENERALIZATION"/>
-    <eLiterals name="SPECIALIZATION" literal="SPECIALIZATION"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Enum" eSuperTypes="#//SuperClass">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributeEnum" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="StereotypeAttribute">
+    <eLiterals name="Password"/>
+    <eLiterals name="User"/>
   </eClassifiers>
 </ecore:EPackage>
