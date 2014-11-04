@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/LedsCodeAPI/src" modelPluginID="LedsCodeAPI" modelName="LEDSCodeModel"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>LEDSCodeModel.ecore</foreignModel>
+  <genPackages prefix="LedsCodeModel" basePackage="LedsCodeModel" disposableProviderFactory="true"
+      ecorePackage="LEDSCodeModel.ecore#/">
+    <genClasses ecoreClass="LEDSCodeModel.ecore#//Specification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LEDSCodeModel.ecore#//Specification/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LEDSCodeModel.ecore#//Specification/createdDate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LEDSCodeModel.ecore#//Specification/has"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LEDSCodeModel.ecore#//Specification/described"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="LEDSCodeModel.ecore#//Model"/>
+    <genClasses ecoreClass="LEDSCodeModel.ecore#//Features">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LEDSCodeModel.ecore#//Features/language"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LEDSCodeModel.ecore#//Features/dataBaseName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LEDSCodeModel.ecore#//Features/engine"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LEDSCodeModel.ecore#//Features/orm"/>
+    </genClasses>
+    <genClasses ecoreClass="LEDSCodeModel.ecore#//ClassDiagram">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LEDSCodeModel.ecore#//ClassDiagram/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LEDSCodeModel.ecore#//ClassDiagram/composed"/>
+    </genClasses>
+    <genClasses ecoreClass="LEDSCodeModel.ecore#//Class">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LEDSCodeModel.ecore#//Class/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LEDSCodeModel.ecore#//Class/abstract"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LEDSCodeModel.ecore#//Class/composed"/>
+    </genClasses>
+    <genClasses ecoreClass="LEDSCodeModel.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LEDSCodeModel.ecore#//Attribute/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LEDSCodeModel.ecore#//Attribute/attribute"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
