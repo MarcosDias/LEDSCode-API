@@ -2,11 +2,16 @@
  */
 package LedsCodeModel.LedsCodeModel.util;
 
+import LedsCodeModel.LedsCodeModel.AbstractClass;
+import LedsCodeModel.LedsCodeModel.Association;
 import LedsCodeModel.LedsCodeModel.Attribute;
 import LedsCodeModel.LedsCodeModel.ClassDiagram;
+import LedsCodeModel.LedsCodeModel.Classifier;
+import LedsCodeModel.LedsCodeModel.ENUM;
 import LedsCodeModel.LedsCodeModel.Feature;
 import LedsCodeModel.LedsCodeModel.LedsCodeModelPackage;
 import LedsCodeModel.LedsCodeModel.Model;
+import LedsCodeModel.LedsCodeModel.PrimitiveDataType;
 import LedsCodeModel.LedsCodeModel.Specification;
 
 import org.eclipse.emf.ecore.EObject;
@@ -99,12 +104,48 @@ public class LedsCodeModelSwitch<T> extends Switch<T> {
 			case LedsCodeModelPackage.CLASS: {
 				LedsCodeModel.LedsCodeModel.Class class_ = (LedsCodeModel.LedsCodeModel.Class)theEObject;
 				T result = caseClass(class_);
+				if (result == null) result = caseAbstractClass(class_);
+				if (result == null) result = caseClassifier(class_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case LedsCodeModelPackage.ATTRIBUTE: {
 				Attribute attribute = (Attribute)theEObject;
 				T result = caseAttribute(attribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case LedsCodeModelPackage.CLASSIFIER: {
+				Classifier classifier = (Classifier)theEObject;
+				T result = caseClassifier(classifier);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case LedsCodeModelPackage.PRIMITIVE_DATA_TYPE: {
+				PrimitiveDataType primitiveDataType = (PrimitiveDataType)theEObject;
+				T result = casePrimitiveDataType(primitiveDataType);
+				if (result == null) result = caseClassifier(primitiveDataType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case LedsCodeModelPackage.ASSOCIATION: {
+				Association association = (Association)theEObject;
+				T result = caseAssociation(association);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case LedsCodeModelPackage.ABSTRACT_CLASS: {
+				AbstractClass abstractClass = (AbstractClass)theEObject;
+				T result = caseAbstractClass(abstractClass);
+				if (result == null) result = caseClassifier(abstractClass);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case LedsCodeModelPackage.ENUM: {
+				ENUM enum_ = (ENUM)theEObject;
+				T result = caseENUM(enum_);
+				if (result == null) result = caseAbstractClass(enum_);
+				if (result == null) result = caseClassifier(enum_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -199,6 +240,81 @@ public class LedsCodeModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAttribute(Attribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Classifier</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Classifier</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseClassifier(Classifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Primitive Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Primitive Data Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePrimitiveDataType(PrimitiveDataType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Association</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Association</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAssociation(Association object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Class</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractClass(AbstractClass object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ENUM</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ENUM</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseENUM(ENUM object) {
 		return null;
 	}
 

@@ -2,14 +2,18 @@
  */
 package LedsCodeModel.LedsCodeModel.impl;
 
+import LedsCodeModel.LedsCodeModel.Association;
 import LedsCodeModel.LedsCodeModel.Attribute;
 import LedsCodeModel.LedsCodeModel.ClassDiagram;
+import LedsCodeModel.LedsCodeModel.ENUM;
 import LedsCodeModel.LedsCodeModel.Feature;
 import LedsCodeModel.LedsCodeModel.LedsCodeModelFactory;
 import LedsCodeModel.LedsCodeModel.LedsCodeModelPackage;
+import LedsCodeModel.LedsCodeModel.PrimitiveData;
+import LedsCodeModel.LedsCodeModel.PrimitiveDataType;
 import LedsCodeModel.LedsCodeModel.Specification;
+import LedsCodeModel.LedsCodeModel.StereotypeAttribute;
 import LedsCodeModel.LedsCodeModel.StereotypeClass;
-import LedsCodeModel.LedsCodeModel.Type;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -69,6 +73,9 @@ public class LedsCodeModelFactoryImpl extends EFactoryImpl implements LedsCodeMo
 			case LedsCodeModelPackage.CLASS_DIAGRAM: return createClassDiagram();
 			case LedsCodeModelPackage.CLASS: return createClass();
 			case LedsCodeModelPackage.ATTRIBUTE: return createAttribute();
+			case LedsCodeModelPackage.PRIMITIVE_DATA_TYPE: return createPrimitiveDataType();
+			case LedsCodeModelPackage.ASSOCIATION: return createAssociation();
+			case LedsCodeModelPackage.ENUM: return createENUM();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -84,8 +91,10 @@ public class LedsCodeModelFactoryImpl extends EFactoryImpl implements LedsCodeMo
 		switch (eDataType.getClassifierID()) {
 			case LedsCodeModelPackage.STEREOTYPE_CLASS:
 				return createStereotypeClassFromString(eDataType, initialValue);
-			case LedsCodeModelPackage.TYPE:
-				return createTypeFromString(eDataType, initialValue);
+			case LedsCodeModelPackage.PRIMITIVE_DATA:
+				return createPrimitiveDataFromString(eDataType, initialValue);
+			case LedsCodeModelPackage.STEREOTYPE_ATTRIBUTE:
+				return createStereotypeAttributeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -101,8 +110,10 @@ public class LedsCodeModelFactoryImpl extends EFactoryImpl implements LedsCodeMo
 		switch (eDataType.getClassifierID()) {
 			case LedsCodeModelPackage.STEREOTYPE_CLASS:
 				return convertStereotypeClassToString(eDataType, instanceValue);
-			case LedsCodeModelPackage.TYPE:
-				return convertTypeToString(eDataType, instanceValue);
+			case LedsCodeModelPackage.PRIMITIVE_DATA:
+				return convertPrimitiveDataToString(eDataType, instanceValue);
+			case LedsCodeModelPackage.STEREOTYPE_ATTRIBUTE:
+				return convertStereotypeAttributeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -163,6 +174,36 @@ public class LedsCodeModelFactoryImpl extends EFactoryImpl implements LedsCodeMo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PrimitiveDataType createPrimitiveDataType() {
+		PrimitiveDataTypeImpl primitiveDataType = new PrimitiveDataTypeImpl();
+		return primitiveDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Association createAssociation() {
+		AssociationImpl association = new AssociationImpl();
+		return association;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ENUM createENUM() {
+		ENUMImpl enum_ = new ENUMImpl();
+		return enum_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public StereotypeClass createStereotypeClassFromString(EDataType eDataType, String initialValue) {
 		StereotypeClass result = StereotypeClass.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -183,8 +224,8 @@ public class LedsCodeModelFactoryImpl extends EFactoryImpl implements LedsCodeMo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Type createTypeFromString(EDataType eDataType, String initialValue) {
-		Type result = Type.get(initialValue);
+	public PrimitiveData createPrimitiveDataFromString(EDataType eDataType, String initialValue) {
+		PrimitiveData result = PrimitiveData.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -194,7 +235,27 @@ public class LedsCodeModelFactoryImpl extends EFactoryImpl implements LedsCodeMo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertTypeToString(EDataType eDataType, Object instanceValue) {
+	public String convertPrimitiveDataToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StereotypeAttribute createStereotypeAttributeFromString(EDataType eDataType, String initialValue) {
+		StereotypeAttribute result = StereotypeAttribute.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertStereotypeAttributeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

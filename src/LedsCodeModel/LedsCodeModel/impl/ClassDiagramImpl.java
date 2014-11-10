@@ -2,6 +2,7 @@
  */
 package LedsCodeModel.LedsCodeModel.impl;
 
+import LedsCodeModel.LedsCodeModel.AbstractClass;
 import LedsCodeModel.LedsCodeModel.ClassDiagram;
 import LedsCodeModel.LedsCodeModel.LedsCodeModelPackage;
 
@@ -63,7 +64,7 @@ public class ClassDiagramImpl extends ModelImpl implements ClassDiagram {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<LedsCodeModel.LedsCodeModel.Class> composed;
+	protected EList<AbstractClass> composed;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -110,9 +111,9 @@ public class ClassDiagramImpl extends ModelImpl implements ClassDiagram {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<LedsCodeModel.LedsCodeModel.Class> getComposed() {
+	public EList<AbstractClass> getComposed() {
 		if (composed == null) {
-			composed = new EObjectContainmentEList<LedsCodeModel.LedsCodeModel.Class>(LedsCodeModel.LedsCodeModel.Class.class, this, LedsCodeModelPackage.CLASS_DIAGRAM__COMPOSED);
+			composed = new EObjectContainmentEList<AbstractClass>(AbstractClass.class, this, LedsCodeModelPackage.CLASS_DIAGRAM__COMPOSED);
 		}
 		return composed;
 	}
@@ -161,7 +162,7 @@ public class ClassDiagramImpl extends ModelImpl implements ClassDiagram {
 				return;
 			case LedsCodeModelPackage.CLASS_DIAGRAM__COMPOSED:
 				getComposed().clear();
-				getComposed().addAll((Collection<? extends LedsCodeModel.LedsCodeModel.Class>)newValue);
+				getComposed().addAll((Collection<? extends AbstractClass>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

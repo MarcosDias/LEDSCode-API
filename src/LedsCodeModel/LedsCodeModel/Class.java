@@ -4,8 +4,6 @@ package LedsCodeModel.LedsCodeModel;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Class</b></em>'.
@@ -14,10 +12,10 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link LedsCodeModel.LedsCodeModel.Class#getName <em>Name</em>}</li>
  *   <li>{@link LedsCodeModel.LedsCodeModel.Class#isAbstract <em>Abstract</em>}</li>
- *   <li>{@link LedsCodeModel.LedsCodeModel.Class#getComposed <em>Composed</em>}</li>
+ *   <li>{@link LedsCodeModel.LedsCodeModel.Class#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link LedsCodeModel.LedsCodeModel.Class#getStereotypeClass <em>Stereotype Class</em>}</li>
+ *   <li>{@link LedsCodeModel.LedsCodeModel.Class#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,33 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Class extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see LedsCodeModel.LedsCodeModel.LedsCodeModelPackage#getClass_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link LedsCodeModel.LedsCodeModel.Class#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface Class extends AbstractClass {
 	/**
 	 * Returns the value of the '<em><b>Abstract</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -79,20 +51,20 @@ public interface Class extends EObject {
 	void setAbstract(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Composed</b></em>' reference list.
+	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
 	 * The list contents are of type {@link LedsCodeModel.LedsCodeModel.Attribute}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Composed</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Attributes</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Composed</em>' reference list.
-	 * @see LedsCodeModel.LedsCodeModel.LedsCodeModelPackage#getClass_Composed()
-	 * @model
+	 * @return the value of the '<em>Attributes</em>' containment reference list.
+	 * @see LedsCodeModel.LedsCodeModel.LedsCodeModelPackage#getClass_Attributes()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Attribute> getComposed();
+	EList<Attribute> getAttributes();
 
 	/**
 	 * Returns the value of the '<em><b>Stereotype Class</b></em>' attribute list.
@@ -111,5 +83,21 @@ public interface Class extends EObject {
 	 * @generated
 	 */
 	EList<StereotypeClass> getStereotypeClass();
+
+	/**
+	 * Returns the value of the '<em><b>Parent</b></em>' reference list.
+	 * The list contents are of type {@link LedsCodeModel.LedsCodeModel.Class}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent</em>' reference list.
+	 * @see LedsCodeModel.LedsCodeModel.LedsCodeModelPackage#getClass_Parent()
+	 * @model extendedMetaData="kind='simple'"
+	 * @generated
+	 */
+	EList<Class> getParent();
 
 } // Class

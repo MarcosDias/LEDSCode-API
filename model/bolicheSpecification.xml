@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<LedsCodeModel:Specification xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:LedsCodeModel="LedsCodeModel" name="teste" createdDate="2014-11-06T19:08:11.153-0200">
+  <has xsi:type="LedsCodeModel:ClassDiagram" name="Boliche">
+    <composed xsi:type="LedsCodeModel:Class" name="Jogador">
+      <stereotypeClass>Entity</stereotypeClass>
+      <stereotypeClass>View</stereotypeClass>
+    </composed>
+  </has>
+</LedsCodeModel:Specification>

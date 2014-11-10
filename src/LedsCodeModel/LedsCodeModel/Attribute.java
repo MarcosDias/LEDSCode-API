@@ -49,32 +49,29 @@ public interface Attribute extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link LedsCodeModel.LedsCodeModel.Type}.
+	 * Returns the value of the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Type</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see LedsCodeModel.LedsCodeModel.Type
-	 * @see #setType(Type)
+	 * @return the value of the '<em>Type</em>' reference.
+	 * @see #setType(Classifier)
 	 * @see LedsCodeModel.LedsCodeModel.LedsCodeModelPackage#getAttribute_Type()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
-	Type getType();
+	Classifier getType();
 
 	/**
-	 * Sets the value of the '{@link LedsCodeModel.LedsCodeModel.Attribute#getType <em>Type</em>}' attribute.
+	 * Sets the value of the '{@link LedsCodeModel.LedsCodeModel.Attribute#getType <em>Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' attribute.
-	 * @see LedsCodeModel.LedsCodeModel.Type
+	 * @param value the new value of the '<em>Type</em>' reference.
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(Type value);
+	void setType(Classifier value);
 
 } // Attribute

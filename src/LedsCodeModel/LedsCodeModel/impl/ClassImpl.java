@@ -10,15 +10,18 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,36 +30,16 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link LedsCodeModel.LedsCodeModel.impl.ClassImpl#getName <em>Name</em>}</li>
  *   <li>{@link LedsCodeModel.LedsCodeModel.impl.ClassImpl#isAbstract <em>Abstract</em>}</li>
- *   <li>{@link LedsCodeModel.LedsCodeModel.impl.ClassImpl#getComposed <em>Composed</em>}</li>
+ *   <li>{@link LedsCodeModel.LedsCodeModel.impl.ClassImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link LedsCodeModel.LedsCodeModel.impl.ClassImpl#getStereotypeClass <em>Stereotype Class</em>}</li>
+ *   <li>{@link LedsCodeModel.LedsCodeModel.impl.ClassImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ClassImpl extends MinimalEObjectImpl.Container implements LedsCodeModel.LedsCodeModel.Class {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
+public class ClassImpl extends AbstractClassImpl implements LedsCodeModel.LedsCodeModel.Class {
 	/**
 	 * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -78,14 +61,14 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements LedsCodeM
 	protected boolean abstract_ = ABSTRACT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getComposed() <em>Composed</em>}' reference list.
+	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComposed()
+	 * @see #getAttributes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Attribute> composed;
+	protected EList<Attribute> attributes;
 
 	/**
 	 * The cached value of the '{@link #getStereotypeClass() <em>Stereotype Class</em>}' attribute list.
@@ -96,6 +79,16 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements LedsCodeM
 	 * @ordered
 	 */
 	protected EList<StereotypeClass> stereotypeClass;
+
+	/**
+	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParent()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LedsCodeModel.LedsCodeModel.Class> parent;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -114,27 +107,6 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements LedsCodeM
 	@Override
 	protected EClass eStaticClass() {
 		return LedsCodeModelPackage.Literals.CLASS;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LedsCodeModelPackage.CLASS__NAME, oldName, name));
 	}
 
 	/**
@@ -163,11 +135,11 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements LedsCodeM
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Attribute> getComposed() {
-		if (composed == null) {
-			composed = new EObjectResolvingEList<Attribute>(Attribute.class, this, LedsCodeModelPackage.CLASS__COMPOSED);
+	public EList<Attribute> getAttributes() {
+		if (attributes == null) {
+			attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, LedsCodeModelPackage.CLASS__ATTRIBUTES);
 		}
-		return composed;
+		return attributes;
 	}
 
 	/**
@@ -187,17 +159,43 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements LedsCodeM
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<LedsCodeModel.LedsCodeModel.Class> getParent() {
+		if (parent == null) {
+			parent = new EObjectResolvingEList<LedsCodeModel.LedsCodeModel.Class>(LedsCodeModel.LedsCodeModel.Class.class, this, LedsCodeModelPackage.CLASS__PARENT);
+		}
+		return parent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case LedsCodeModelPackage.CLASS__ATTRIBUTES:
+				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case LedsCodeModelPackage.CLASS__NAME:
-				return getName();
 			case LedsCodeModelPackage.CLASS__ABSTRACT:
 				return isAbstract();
-			case LedsCodeModelPackage.CLASS__COMPOSED:
-				return getComposed();
+			case LedsCodeModelPackage.CLASS__ATTRIBUTES:
+				return getAttributes();
 			case LedsCodeModelPackage.CLASS__STEREOTYPE_CLASS:
 				return getStereotypeClass();
+			case LedsCodeModelPackage.CLASS__PARENT:
+				return getParent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,15 +209,16 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements LedsCodeM
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case LedsCodeModelPackage.CLASS__NAME:
-				setName((String)newValue);
-				return;
 			case LedsCodeModelPackage.CLASS__ABSTRACT:
 				setAbstract((Boolean)newValue);
 				return;
-			case LedsCodeModelPackage.CLASS__COMPOSED:
-				getComposed().clear();
-				getComposed().addAll((Collection<? extends Attribute>)newValue);
+			case LedsCodeModelPackage.CLASS__ATTRIBUTES:
+				getAttributes().clear();
+				getAttributes().addAll((Collection<? extends Attribute>)newValue);
+				return;
+			case LedsCodeModelPackage.CLASS__PARENT:
+				getParent().clear();
+				getParent().addAll((Collection<? extends LedsCodeModel.LedsCodeModel.Class>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -233,14 +232,14 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements LedsCodeM
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case LedsCodeModelPackage.CLASS__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case LedsCodeModelPackage.CLASS__ABSTRACT:
 				setAbstract(ABSTRACT_EDEFAULT);
 				return;
-			case LedsCodeModelPackage.CLASS__COMPOSED:
-				getComposed().clear();
+			case LedsCodeModelPackage.CLASS__ATTRIBUTES:
+				getAttributes().clear();
+				return;
+			case LedsCodeModelPackage.CLASS__PARENT:
+				getParent().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -254,14 +253,14 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements LedsCodeM
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case LedsCodeModelPackage.CLASS__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case LedsCodeModelPackage.CLASS__ABSTRACT:
 				return abstract_ != ABSTRACT_EDEFAULT;
-			case LedsCodeModelPackage.CLASS__COMPOSED:
-				return composed != null && !composed.isEmpty();
+			case LedsCodeModelPackage.CLASS__ATTRIBUTES:
+				return attributes != null && !attributes.isEmpty();
 			case LedsCodeModelPackage.CLASS__STEREOTYPE_CLASS:
 				return stereotypeClass != null && !stereotypeClass.isEmpty();
+			case LedsCodeModelPackage.CLASS__PARENT:
+				return parent != null && !parent.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -276,9 +275,7 @@ public class ClassImpl extends MinimalEObjectImpl.Container implements LedsCodeM
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", abstract: ");
+		result.append(" (abstract: ");
 		result.append(abstract_);
 		result.append(", stereotypeClass: ");
 		result.append(stereotypeClass);

@@ -97,26 +97,26 @@ public interface Specification extends EObject {
 	EList<Model> getHas();
 
 	/**
-	 * Returns the value of the '<em><b>Described</b></em>' reference.
+	 * Returns the value of the '<em><b>Described</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Described</em>' reference isn't clear,
+	 * If the meaning of the '<em>Described</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Described</em>' reference.
+	 * @return the value of the '<em>Described</em>' containment reference.
 	 * @see #setDescribed(Feature)
 	 * @see LedsCodeModel.LedsCodeModel.LedsCodeModelPackage#getSpecification_Described()
-	 * @model
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Feature getDescribed();
 
 	/**
-	 * Sets the value of the '{@link LedsCodeModel.LedsCodeModel.Specification#getDescribed <em>Described</em>}' reference.
+	 * Sets the value of the '{@link LedsCodeModel.LedsCodeModel.Specification#getDescribed <em>Described</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Described</em>' reference.
+	 * @param value the new value of the '<em>Described</em>' containment reference.
 	 * @see #getDescribed()
 	 * @generated
 	 */

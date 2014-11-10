@@ -2,33 +2,30 @@
  */
 package LedsCodeModel.LedsCodeModel.impl;
 
-import LedsCodeModel.LedsCodeModel.Attribute;
 import LedsCodeModel.LedsCodeModel.Classifier;
 import LedsCodeModel.LedsCodeModel.LedsCodeModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Attribute</b></em>'.
+ * An implementation of the model object '<em><b>Classifier</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link LedsCodeModel.LedsCodeModel.impl.AttributeImpl#getName <em>Name</em>}</li>
- *   <li>{@link LedsCodeModel.LedsCodeModel.impl.AttributeImpl#getType <em>Type</em>}</li>
+ *   <li>{@link LedsCodeModel.LedsCodeModel.impl.ClassifierImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AttributeImpl extends MinimalEObjectImpl.Container implements Attribute {
+public abstract class ClassifierImpl extends MinimalEObjectImpl.Container implements Classifier {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -50,21 +47,11 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected Classifier type;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AttributeImpl() {
+	protected ClassifierImpl() {
 		super();
 	}
 
@@ -75,7 +62,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return LedsCodeModelPackage.Literals.ATTRIBUTE;
+		return LedsCodeModelPackage.Literals.CLASSIFIER;
 	}
 
 	/**
@@ -96,45 +83,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LedsCodeModelPackage.ATTRIBUTE__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Classifier getType() {
-		if (type != null && type.eIsProxy()) {
-			InternalEObject oldType = (InternalEObject)type;
-			type = (Classifier)eResolveProxy(oldType);
-			if (type != oldType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LedsCodeModelPackage.ATTRIBUTE__TYPE, oldType, type));
-			}
-		}
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Classifier basicGetType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(Classifier newType) {
-		Classifier oldType = type;
-		type = newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LedsCodeModelPackage.ATTRIBUTE__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, LedsCodeModelPackage.CLASSIFIER__NAME, oldName, name));
 	}
 
 	/**
@@ -145,11 +94,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case LedsCodeModelPackage.ATTRIBUTE__NAME:
+			case LedsCodeModelPackage.CLASSIFIER__NAME:
 				return getName();
-			case LedsCodeModelPackage.ATTRIBUTE__TYPE:
-				if (resolve) return getType();
-				return basicGetType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,11 +108,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case LedsCodeModelPackage.ATTRIBUTE__NAME:
+			case LedsCodeModelPackage.CLASSIFIER__NAME:
 				setName((String)newValue);
-				return;
-			case LedsCodeModelPackage.ATTRIBUTE__TYPE:
-				setType((Classifier)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,11 +123,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case LedsCodeModelPackage.ATTRIBUTE__NAME:
+			case LedsCodeModelPackage.CLASSIFIER__NAME:
 				setName(NAME_EDEFAULT);
-				return;
-			case LedsCodeModelPackage.ATTRIBUTE__TYPE:
-				setType((Classifier)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -198,10 +138,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case LedsCodeModelPackage.ATTRIBUTE__NAME:
+			case LedsCodeModelPackage.CLASSIFIER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case LedsCodeModelPackage.ATTRIBUTE__TYPE:
-				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -222,4 +160,4 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 		return result.toString();
 	}
 
-} //AttributeImpl
+} //ClassifierImpl

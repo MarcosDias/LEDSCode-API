@@ -11,13 +11,14 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import LedsCodeModel.LedsCodeModel.Model;
+
+import LedsCodeModel.LedsCodeModel.Specification;
 
 public class Writer {
 
-	private final String EXTENTION = "xml";
+	private final String EXTENTION = "ledscodemodel";
 
-	public void writeXML(String filePath, String documentName, Model model)
+	public void writeXML(String filePath, String documentName, Specification model)
 			throws IOException {
 
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;

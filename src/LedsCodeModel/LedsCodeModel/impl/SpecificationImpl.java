@@ -92,7 +92,7 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
 	protected EList<Model> has;
 
 	/**
-	 * The cached value of the '{@link #getDescribed() <em>Described</em>}' reference.
+	 * The cached value of the '{@link #getDescribed() <em>Described</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDescribed()
@@ -180,14 +180,6 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
 	 * @generated
 	 */
 	public Feature getDescribed() {
-		if (described != null && described.eIsProxy()) {
-			InternalEObject oldDescribed = (InternalEObject)described;
-			described = (Feature)eResolveProxy(oldDescribed);
-			if (described != oldDescribed) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LedsCodeModelPackage.SPECIFICATION__DESCRIBED, oldDescribed, described));
-			}
-		}
 		return described;
 	}
 
@@ -196,8 +188,14 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Feature basicGetDescribed() {
-		return described;
+	public NotificationChain basicSetDescribed(Feature newDescribed, NotificationChain msgs) {
+		Feature oldDescribed = described;
+		described = newDescribed;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LedsCodeModelPackage.SPECIFICATION__DESCRIBED, oldDescribed, newDescribed);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -206,10 +204,17 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
 	 * @generated
 	 */
 	public void setDescribed(Feature newDescribed) {
-		Feature oldDescribed = described;
-		described = newDescribed;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LedsCodeModelPackage.SPECIFICATION__DESCRIBED, oldDescribed, described));
+		if (newDescribed != described) {
+			NotificationChain msgs = null;
+			if (described != null)
+				msgs = ((InternalEObject)described).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LedsCodeModelPackage.SPECIFICATION__DESCRIBED, null, msgs);
+			if (newDescribed != null)
+				msgs = ((InternalEObject)newDescribed).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LedsCodeModelPackage.SPECIFICATION__DESCRIBED, null, msgs);
+			msgs = basicSetDescribed(newDescribed, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LedsCodeModelPackage.SPECIFICATION__DESCRIBED, newDescribed, newDescribed));
 	}
 
 	/**
@@ -222,6 +227,8 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
 		switch (featureID) {
 			case LedsCodeModelPackage.SPECIFICATION__HAS:
 				return ((InternalEList<?>)getHas()).basicRemove(otherEnd, msgs);
+			case LedsCodeModelPackage.SPECIFICATION__DESCRIBED:
+				return basicSetDescribed(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -241,8 +248,7 @@ public class SpecificationImpl extends MinimalEObjectImpl.Container implements S
 			case LedsCodeModelPackage.SPECIFICATION__HAS:
 				return getHas();
 			case LedsCodeModelPackage.SPECIFICATION__DESCRIBED:
-				if (resolve) return getDescribed();
-				return basicGetDescribed();
+				return getDescribed();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

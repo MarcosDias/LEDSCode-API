@@ -6,7 +6,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="has" lowerBound="1" upperBound="-1"
         eType="#//Model" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="described" eType="#//Feature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="described" lowerBound="1"
+        eType="#//Feature" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Model" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Feature">
@@ -19,12 +20,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="ClassDiagram" eSuperTypes="#//Model">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="composed" upperBound="-1"
-        eType="#//SuperClass" containment="true"/>
+        eType="#//AbstractClass" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//SuperClass">
+  <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//AbstractClass">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="composed" upperBound="-1"
-        eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stereotypeClass" upperBound="-1"
         eType="#//StereotypeClass" changeable="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" upperBound="-1"
@@ -36,14 +37,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Classifier"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="StereotypeClass">
     <eLiterals name="View"/>
     <eLiterals name="Security"/>
     <eLiterals name="Entity"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="TypeAttribute">
+  <eClassifiers xsi:type="ecore:EEnum" name="PrimitiveData">
     <eLiterals name="String"/>
     <eLiterals name="int"/>
     <eLiterals name="byte"/>
@@ -53,17 +54,27 @@
     <eLiterals name="double"/>
     <eLiterals name="char"/>
     <eLiterals name="boolean"/>
-    <eLiterals name="Object"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SuperClass" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Classifier" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Enum" eSuperTypes="#//SuperClass">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributeEnum" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="StereotypeAttribute">
     <eLiterals name="Password"/>
     <eLiterals name="User"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveDataType" eSuperTypes="#//Classifier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PrimitiveData"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Association">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//Class"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractClass" abstract="true" eSuperTypes="#//Classifier"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ENUM" eSuperTypes="#//AbstractClass">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

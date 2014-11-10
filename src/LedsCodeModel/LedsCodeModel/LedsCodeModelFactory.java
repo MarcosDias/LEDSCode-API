@@ -67,6 +67,33 @@ public interface LedsCodeModelFactory extends EFactory {
 	Attribute createAttribute();
 
 	/**
+	 * Returns a new object of class '<em>Primitive Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Primitive Data Type</em>'.
+	 * @generated
+	 */
+	PrimitiveDataType createPrimitiveDataType();
+
+	/**
+	 * Returns a new object of class '<em>Association</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Association</em>'.
+	 * @generated
+	 */
+	Association createAssociation();
+
+	/**
+	 * Returns a new object of class '<em>ENUM</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>ENUM</em>'.
+	 * @generated
+	 */
+	ENUM createENUM();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

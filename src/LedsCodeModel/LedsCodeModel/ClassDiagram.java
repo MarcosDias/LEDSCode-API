@@ -50,7 +50,7 @@ public interface ClassDiagram extends Model {
 
 	/**
 	 * Returns the value of the '<em><b>Composed</b></em>' containment reference list.
-	 * The list contents are of type {@link LedsCodeModel.LedsCodeModel.Class}.
+	 * The list contents are of type {@link LedsCodeModel.LedsCodeModel.AbstractClass}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Composed</em>' containment reference list isn't clear,
@@ -62,6 +62,6 @@ public interface ClassDiagram extends Model {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<LedsCodeModel.LedsCodeModel.Class> getComposed();
+	EList<AbstractClass> getComposed();
 
 } // ClassDiagram

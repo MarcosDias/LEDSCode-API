@@ -2,11 +2,16 @@
  */
 package LedsCodeModel.LedsCodeModel.util;
 
+import LedsCodeModel.LedsCodeModel.AbstractClass;
+import LedsCodeModel.LedsCodeModel.Association;
 import LedsCodeModel.LedsCodeModel.Attribute;
 import LedsCodeModel.LedsCodeModel.ClassDiagram;
+import LedsCodeModel.LedsCodeModel.Classifier;
+import LedsCodeModel.LedsCodeModel.ENUM;
 import LedsCodeModel.LedsCodeModel.Feature;
 import LedsCodeModel.LedsCodeModel.LedsCodeModelPackage;
 import LedsCodeModel.LedsCodeModel.Model;
+import LedsCodeModel.LedsCodeModel.PrimitiveDataType;
 import LedsCodeModel.LedsCodeModel.Specification;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -95,6 +100,26 @@ public class LedsCodeModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAttribute(Attribute object) {
 				return createAttributeAdapter();
+			}
+			@Override
+			public Adapter caseClassifier(Classifier object) {
+				return createClassifierAdapter();
+			}
+			@Override
+			public Adapter casePrimitiveDataType(PrimitiveDataType object) {
+				return createPrimitiveDataTypeAdapter();
+			}
+			@Override
+			public Adapter caseAssociation(Association object) {
+				return createAssociationAdapter();
+			}
+			@Override
+			public Adapter caseAbstractClass(AbstractClass object) {
+				return createAbstractClassAdapter();
+			}
+			@Override
+			public Adapter caseENUM(ENUM object) {
+				return createENUMAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -197,6 +222,76 @@ public class LedsCodeModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link LedsCodeModel.LedsCodeModel.Classifier <em>Classifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see LedsCodeModel.LedsCodeModel.Classifier
+	 * @generated
+	 */
+	public Adapter createClassifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link LedsCodeModel.LedsCodeModel.PrimitiveDataType <em>Primitive Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see LedsCodeModel.LedsCodeModel.PrimitiveDataType
+	 * @generated
+	 */
+	public Adapter createPrimitiveDataTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link LedsCodeModel.LedsCodeModel.Association <em>Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see LedsCodeModel.LedsCodeModel.Association
+	 * @generated
+	 */
+	public Adapter createAssociationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link LedsCodeModel.LedsCodeModel.AbstractClass <em>Abstract Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see LedsCodeModel.LedsCodeModel.AbstractClass
+	 * @generated
+	 */
+	public Adapter createAbstractClassAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link LedsCodeModel.LedsCodeModel.ENUM <em>ENUM</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see LedsCodeModel.LedsCodeModel.ENUM
+	 * @generated
+	 */
+	public Adapter createENUMAdapter() {
 		return null;
 	}
 
