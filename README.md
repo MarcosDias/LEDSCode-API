@@ -1,4 +1,4 @@
-LEDSCode-API
+LEDSCodeAPI
 ==============
 
-LEDSCode API é umas das partes de um projeto maior de Trabalho de Conclusão de Curso.
+LEDSCodeAPI é umas das partes de um projeto maior de Trabalho de Conclusão de Curso.
