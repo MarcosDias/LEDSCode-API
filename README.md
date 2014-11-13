@@ -1,4 +1,4 @@
-LEDSCode-Model
+LEDSCode-API
 ==============
 
-LEDSCode Model é umas das partes de um projeto maior de Trabalho de Conclusão de Curso.
+LEDSCode API é umas das partes de um projeto maior de Trabalho de Conclusão de Curso.
